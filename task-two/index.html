@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-1</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="textContainer">
+        <p data-count="0" data-text="Lorem ipsum dolor sit amet-1">Lorem ipsum dolor sit amet-1.</p>
+        <p data-count="0" data-text="Lorem ipsum dolor sit amet-2.">Lorem ipsum dolor sit amet-2.</p>
+        <p data-count="0" data-text="Lorem ipsum dolor sit amet-3.">Lorem ipsum dolor sit amet-3.</p>
+    </div>
+</body>
+<script>
+    const container = document.getElementById('textContainer');
+
+    container.addEventListener('click', (element) => {
+        if (element.target.tagName === 'P') {
+            const p = element.target;
+            p.classList.toggle('highlight');
+            if (p.classList.contains('highlight')) {
+                p.dataset.count++;
+                p.textContent = `${p.dataset.text} (Clicked ${p.dataset.count} times)`;
+                p.style.bagroundcolor = "yello"
+            } else {
+                p.textContent = p.dataset.text;
+            }
+        }
+    });
+</script>
+
+</html>
